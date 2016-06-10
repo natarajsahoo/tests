@@ -36,6 +36,13 @@ exec("php 2.php Ok > /dev/null 2>&1 &")
 
 ## Test performed
 
+### Procedure:
+1. Place the scripts 1.php and 2.php in one folder
+2. Run 1.php and it will start 2.php in a new process
+
+#### How to make sure that the script 2.php executed successfully?
+It will create a new file test.txt in the original folder (after the sleep duration-10 sec.s) and write the current time to it in the following format: 09/06/2016-22:35:49
+
 ### Case-1:
 1. Run 1.php
 2. Initially 'started_parent' is printed to the terminal
@@ -49,6 +56,3 @@ exec("php 2.php Ok > /dev/null 2>&1 &")
 3. Then the script 2.php is started in another process and the parent script 1.php continues to execute normally being independent of the script 2.php
 4. Then 'finished_parent' is printed to the terminal
 5. 1.php is finished and control returns back to the terminal
-
-#### How to make sure that the script 2.php executed successfully?
-It will create a new file test.txt in the original folder (after the sleep duration-10 sec.s) and write the current time to it in the following format: 09/06/2016-22:35:49

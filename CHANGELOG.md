@@ -1,3 +1,7 @@
+## v 0.1.1 (2016-06-11)
+### Bugfixes
+1. Fixed some errors in README.md syntax
+
 ## v 0.1.0 (2016-06-10)
 ### Features
 1. Changed documentation of php test: start a script in a new process

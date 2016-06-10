@@ -2,37 +2,29 @@
 
 - The following (case-1) doesn’t work:
 
-```
-#!php
-
+```php
 exec("nohup path/to/php path/to/script run_time_arguments &")
 ```
-: Ex:
+Ex:
 
-```
-#!php
-
+```php
 exec("nohup /usr/bin/php /var/www/phoenixrobotix/_jobs/trade_alerts/send_alerts.php ".$message_from_sqs." ".$message_receipt_handle." &")
 ```
-: In this case the parent process waits until the child process is finished.
+In this case the parent process waits until the child process is finished.
 
 - Use the following (case-2) instead:
 
-```
-#!php
-
+```php
 exec("path/to/php path/to/script run_time_arguments > /dev/null 2>&1 &")
 ```
-: Ex:
+Ex:
 
-```
-#!php
-
+```php
 exec("php 2.php Ok > /dev/null 2>&1 &")
 ```
-1. ```>> /dev/null``` redirects standard output (```stdout```) to ```/dev/null```, which discards it.hich discards it.  
-(The ```>>``` seems sort of superfluous, since ```>>``` means append while ```>``` means truncate and write, and either appending to or writing to ```/dev/null``` has the same net effect. I usually just use ```>``` for that reason.)
-2. ```2>&1``` redirects standard error (```2```) to standard output (```1```), which then discards it as well since standard output has already been redirected.
+1. `>> /dev/null` redirects standard output (`stdout`) to `/dev/null`, which discards it.hich discards it.  
+(The `>>` seems sort of superfluous, since `>>` means append while `>` means truncate and write, and either appending to or writing to `/dev/null` has the same net effect. I usually just use `>` for that reason.)
+2. `2>&1` redirects standard error (`2`) to standard output (`1`), which then discards it as well since standard output has already been redirected.
 
 ## Test performed
 
